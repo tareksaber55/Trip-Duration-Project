@@ -1,7 +1,7 @@
 🗽 NYC Taxi Trip Duration Prediction
 
 This project predicts taxi trip duration in New York City using machine learning. The dataset comes from the Kaggle competition
-
+[data link] https://www.kaggle.com/competitions/nyc-taxi-trip-duration/overview
 
 📂 Project Structure
 .
