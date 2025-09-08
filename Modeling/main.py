@@ -75,8 +75,9 @@ if __name__ == '__main__':
     train = pd.read_csv("df_train.csv")
     test = pd.read_csv("df_val.csv")
     x_train , t_train , x_test , t_test = preparedata(train,test,processor=1)
-    model = approach3(x_train , t_train)
+    model = approach2(x_train , t_train)
     evaluate( x_train , t_train ,model)
     evaluate( x_test , t_test ,model)
+
 
 
