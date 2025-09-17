@@ -1,3 +1,4 @@
+import ast
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -16,21 +17,27 @@ def prepare_date_cols(df_test):
     df_test['pickup_hour'] = df_test['pickup_datetime'].dt.hour
     df_test['pickup_weekday'] = df_test['pickup_datetime'].dt.weekday
     df_test['is_weekend'] = df_test['pickup_weekday'].isin([5,6]).astype(int) # saturday and sunday
-    df_test['jam_hour'] = (df_test['pickup_hour'].between(11,17) ).astype(int)
+    df_test['rush_hour'] = (
+        df_test['pickup_hour'].between(7, 9) | df_test['pickup_hour'].between(16, 19)
+    ).astype(int)    
     return df_test
 
 
+def haversine(lat1, lon1, lat2, lon2):
+    # convert to radians
+    lat1 = np.radians(lat1)
+    lon1 = np.radians(lon1)
+    lat2 = np.radians(lat2)
+    lon2 = np.radians(lon2)
+    
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    
+    a = np.sin(dlat / 2)**2 + np.cos(lat1) * np.cos(lat2) * np.sin(dlon / 2)**2
+    c = 2 * np.arcsin(np.sqrt(a))
+    return 6371 * c  # Earth radius in km
 
-def haversine_distance(row):
-    # Convert pickup and dropoff to radians
-    start = np.radians([row['pickup_latitude'], row['pickup_longitude']])
-    end   = np.radians([row['dropoff_latitude'], row['dropoff_longitude']])
-    
-    # sklearn expects 2D arrays → reshape
-    result = haversine_distances([start, end])
-    
-    # distance in km (Earth radius = 6371 km)
-    return result[0,1] * 6371
+
 
 
 
@@ -44,7 +51,10 @@ def prepare_cat_cols(df_test,encoder):
     df_test = pd.concat([df_test, cat_test], axis=1)
     return df_test
 
-
+def add_cluster(df_test,kmeans):
+    df_test.loc[:, 'pickup_cluster']  = kmeans.predict(df_test[['pickup_latitude','pickup_longitude']].values)
+    df_test.loc[:, 'dropoff_cluster'] = kmeans.predict(df_test[['dropoff_latitude','dropoff_longitude']].values)
+    return df_test
 
 def scale_distribute(df_test,scaler):
     df_test = df_test.to_numpy()
@@ -64,13 +74,19 @@ def evaluate(x_test,t_test,model):
 
 
 
-def prepare_data(df_test  , encoder , scaler):
+
+def prepare_data(df_test  , encoder , scaler , kmeans):
     df_test = prepare_date_cols(df_test)
-    df_test['haversine_distance'] = df_test.apply(haversine_distance, axis=1)
+    df_test['haversine_distance'] = haversine(
+    df_test['pickup_latitude'].values,
+    df_test['pickup_longitude'].values,
+    df_test['dropoff_latitude'].values,
+    df_test['dropoff_longitude'].values)
+    df_test = add_cluster(df_test,kmeans)
     df_test = prepare_cat_cols(df_test,encoder)
     df_test['log_trip_duration'] = np.log1p(df_test['trip_duration'])
     features = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-       'dropoff_latitude', 'is_weekend', 'jam_hour', 'haversine_distance','passenger_count_1',
+       'dropoff_latitude', 'is_weekend', 'rush_hour' ,'haversine_distance','passenger_count_1',
        'passenger_count_2', 'passenger_count_3', 'passenger_count_4',
        'passenger_count_5', 'passenger_count_6', 'store_and_fwd_flag_N',
        'store_and_fwd_flag_Y', 'vendor_id_1', 'vendor_id_2', 'pickup_month_1',
@@ -83,7 +99,7 @@ def prepare_data(df_test  , encoder , scaler):
        'pickup_hour_19', 'pickup_hour_20', 'pickup_hour_21', 'pickup_hour_22',
        'pickup_hour_23', 'pickup_weekday_0', 'pickup_weekday_1',
        'pickup_weekday_2', 'pickup_weekday_3', 'pickup_weekday_4',
-       'pickup_weekday_5', 'pickup_weekday_6', 'log_trip_duration' ]
+       'pickup_weekday_5', 'pickup_weekday_6','pickup_cluster' , 'dropoff_cluster' ,'log_trip_duration' ]
     df_test = df_test[features]
     x_test,t_test = scale_distribute(df_test,scaler)
     return x_test,t_test
@@ -94,6 +110,7 @@ if __name__ == '__main__':
     model = joblib.load("model.pkl")
     encoder = joblib.load("encoder.pkl")
     scaler = joblib.load("scaler.pkl")
-    x_test,t_test = prepare_data(df_test,encoder,scaler)
+    kmeans = joblib.load('kmeans.pkl')
+    x_test,t_test = prepare_data(df_test,encoder,scaler,kmeans)
     evaluate(x_test,t_test,model)
     
