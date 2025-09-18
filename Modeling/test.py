@@ -51,9 +51,26 @@ def prepare_cat_cols(df_test,encoder):
     df_test = pd.concat([df_test, cat_test], axis=1)
     return df_test
 
-def add_cluster(df_test,kmeans):
-    df_test.loc[:, 'pickup_cluster']  = kmeans.predict(df_test[['pickup_latitude','pickup_longitude']].values)
-    df_test.loc[:, 'dropoff_cluster'] = kmeans.predict(df_test[['dropoff_latitude','dropoff_longitude']].values)
+
+def add_cluster(df_test, kmeans):
+    df_test['pickup_cluster'] = kmeans.predict(
+        df_test[['pickup_latitude','pickup_longitude']].values
+    )
+    df_test['dropoff_cluster'] = kmeans.predict(
+        df_test[['dropoff_latitude','dropoff_longitude']].values
+    )
+
+    gby = pd.read_csv('cluster_pair_avg_duration.csv')
+
+    # Merge on cluster pairs
+    df_test = df_test.merge(
+        gby,
+        on=['pickup_cluster','dropoff_cluster'],
+        how='left'
+    )
+
+
+
     return df_test
 
 def scale_distribute(df_test,scaler):
@@ -99,7 +116,7 @@ def prepare_data(df_test  , encoder , scaler , kmeans):
        'pickup_hour_19', 'pickup_hour_20', 'pickup_hour_21', 'pickup_hour_22',
        'pickup_hour_23', 'pickup_weekday_0', 'pickup_weekday_1',
        'pickup_weekday_2', 'pickup_weekday_3', 'pickup_weekday_4',
-       'pickup_weekday_5', 'pickup_weekday_6','pickup_cluster' , 'dropoff_cluster' ,'log_trip_duration' ]
+       'pickup_weekday_5', 'pickup_weekday_6','pickup_cluster' , 'dropoff_cluster' ,'avg_duration_by_clusterpair','log_trip_duration' ]
     df_test = df_test[features]
     x_test,t_test = scale_distribute(df_test,scaler)
     return x_test,t_test
