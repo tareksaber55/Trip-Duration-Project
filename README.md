@@ -19,9 +19,13 @@ This project predicts taxi trip duration in New York City using machine learning
 
 -Compute geospatial features:
 
--haversine_distance (pickup → dropoff straight-line distance).
+1-haversine_distance (pickup → dropoff straight-line distance).
 
--bearing, euclidean_distance, manhattan_distance (optional).
+2-bearing, euclidean_distance, manhattan_distance (optional).
+
+3-pickup_cluster and drop cluster
+
+4-average trip duration per every cluster pairs
 
 -One-Hot Encode categorical features (passenger_count, vendor_id, etc.).
 
@@ -50,7 +54,7 @@ This project predicts taxi trip duration in New York City using machine learning
 
 -Datetime features: pickup month, hour, weekday, weekend indicator, rush-hour flag.
 
--Geospatial features: pickup/dropoff coordinates, haversine distance , pickup & dropoff cluster.
+-Geospatial features: pickup/dropoff coordinates, haversine distance , pickup & dropoff cluster , average trip duration per every cluster pairs.
 
 -Categorical features (OHE): passenger count, vendor ID, store-and-forward flag, month, hour, weekday.
 
@@ -87,7 +91,4 @@ This project predicts taxi trip duration in New York City using machine learning
 📌 Next Steps
 
 -Hyperparameter tuning (RandomForest / XGBoost).
-
--add average trip duration per every pair of clusters
-
 -Consider traffic/weather data for more accuracy.
