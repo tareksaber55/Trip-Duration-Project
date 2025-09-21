@@ -4,7 +4,7 @@ This project predicts taxi trip duration in New York City using machine learning
 [data link] https://www.kaggle.com/competitions/nyc-taxi-trip-duration/overview
 
 📂 Project Structure
-.
+
 ├── trip-duration EDA.ipynb   # Exploratory Data Analysis & feature engineering
 
 ├── main.py                   # Training script (model building & saving)
