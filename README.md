@@ -11,6 +11,8 @@ This project predicts taxi trip duration in New York City using machine learning
 
 ├── test.py                   # Evaluation script on unseen test data
 
+├──results.txt                # the evaluations of models on train/test
+
 ⚙️ Workflow
 
 1 - EDA & Feature Engineering (trip-duration EDA.ipynb)
