@@ -6,7 +6,9 @@ This project predicts taxi trip duration in New York City using machine learning
 📂 Project Structure
 .
 ├── trip-duration EDA.ipynb   # Exploratory Data Analysis & feature engineering
+
 ├── main.py                   # Training script (model building & saving)
+
 ├── test.py                   # Evaluation script on unseen test data
 
 ⚙️ Workflow
