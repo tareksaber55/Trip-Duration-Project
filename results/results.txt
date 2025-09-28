@@ -1,0 +1,24 @@
+-------------Train and Validation---------------
+- for XGBRegressor , with standardscaler we get rmse is 0.41633716014941013 -- and r2_score is 0.7291156758667947 on validation
+                                                rmse is 0.32267382591998434 -- and r2_score is 0.7952762402686999 on training
+
+- for XGBRegressor , with MinMaxScaler we get rmse is 0.416060910096957 -- and r2_score is 0.7294750335678525 on validation
+                                              rmse is 0.3254230931374925 -- and r2_score is 0.7917727760839074 on training
+
+- for XGBRegressor , without scaling we get rmse is 0.41653581179015214 -- and r2_score is 0.7288571140161433 on validation
+                                            rmse is 0.32642515104516556 -- and r2_score is 0.7904884358392009 on training
+
+-- no difference -- we will take XGBRegressor with standardscaler
+
+-- for linear model ridge  , we get rmse is 0.49892822868379677 -- and r2_score is 0.6109820192683753 on validation
+                                    rmse is 0.4511220031968598 -- and r2_score is 0.5998444987734146 on training
+
+
+
+
+- for RandomForestRegressor , with standardscaler , with just 0.3 of data , we get rmse is 0.4377363979974372 -- and r2_score is 0.7005537751821763 on validation
+                                                                                   rmse is 0.34251265842239736 -- and r2_score is 0.7693284547873523 on training
+
+
+--------------Test-----------------
+- for XGBRegressor model with standardscaler we get rmse is 0.41053272138571584 -- and r2_score is 0.7339426021853546
