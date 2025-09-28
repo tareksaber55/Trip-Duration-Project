@@ -13,6 +13,8 @@ This project predicts taxi trip duration in New York City using machine learning
 
 ├──results.txt                # the evaluations of models on train/test
 
+├──pred_t.csv                 # show the difference between real target values and predicted values (in log scale!)
+
 ⚙️ Workflow
 
 1 - EDA & Feature Engineering (trip-duration EDA.ipynb)
