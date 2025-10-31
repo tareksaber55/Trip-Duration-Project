@@ -26,6 +26,7 @@ def preparedata(train,test,processor = 0):
     t_train = train[:,-1]
     x_test = test[:,:-1]
     t_test = test[:,-1]
+    scaler = None
     if processor == 1:
         scaler = StandardScaler()
         x_train = scaler.fit_transform(x_train)
@@ -36,7 +37,7 @@ def preparedata(train,test,processor = 0):
         x_test = scaler.transform(x_test)
 
 
-    return x_train , t_train , x_test , t_test
+    return scaler,x_train , t_train , x_test , t_test
 
 def ridge(x_train , t_train): 
     model = Ridge(fit_intercept=True,alpha=1)
@@ -74,12 +75,15 @@ def randomforestregressor(x_train , t_train,frac = 0.3):
 
 
 if __name__ == '__main__':
-    # I prepare this data using Jupyter , check Trip Duration EDA file
     train = pd.read_csv("df_train.csv")
     test = pd.read_csv("df_val.csv")
-    x_train , t_train , x_test , t_test = preparedata(train,test,processor=1)
+    scaler,x_train , t_train , x_test , t_test = preparedata(train,test,processor=1)
     model = xgbregressor(x_train , t_train)
     evaluate( x_train , t_train ,model)
     evaluate( x_test , t_test ,model)
+    joblib.dump(scaler,'scaler.joblib')
+    joblib.dump(model,'model.joblib')
+
+
 
 
