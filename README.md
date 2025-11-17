@@ -89,12 +89,16 @@ This project predicts taxi trip duration in New York City using machine learning
 
 (or manually: pandas numpy scikit-learn matplotlib seaborn xgboost joblib)
 
-2 - Run training:
+
+2 - Run EDA File(since it contains the feature engineering process)
+
+
+3 - Run training:
 
 -python main.py
 
 
-3 - Run evaluation on test set:
+4 - Run evaluation on test set:
 
 -python test.py
 
