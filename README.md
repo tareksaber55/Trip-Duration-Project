@@ -1,3 +1,4 @@
+<pre>
 🗽 NYC Taxi Trip Duration Prediction
 
 This project predicts taxi trip duration in New York City using machine learning. The dataset comes from the Kaggle competition
@@ -33,14 +34,13 @@ This project predicts taxi trip duration in New York City using machine learning
 
 2-bearing, euclidean_distance, manhattan_distance (optional).
 
-3-pickup_cluster and drop cluster
+3-pickup_cluster and drop_off cluster
 
 4-average trip duration per every cluster pairs
 
 -One-Hot Encode categorical features (passenger_count, vendor_id, etc.).
 
 -Apply log transformation: log_trip_duration = log(1+trip_duration)
-
 
 2 - Model Training (main.py)
 
@@ -86,19 +86,15 @@ This project predicts taxi trip duration in New York City using machine learning
 
 -pip install -r requirements.txt
 
-
 (or manually: pandas numpy scikit-learn matplotlib seaborn xgboost joblib)
 
 
-2 - Run EDA File(since it contains the feature engineering process)
-
-
-3 - Run training:
+2 - Run training:
 
 -python main.py
 
 
-4 - Run evaluation on test set:
+3 - Run evaluation on test set:
 
 -python test.py
 
@@ -106,3 +102,5 @@ This project predicts taxi trip duration in New York City using machine learning
 
 -Hyperparameter tuning (RandomForest / XGBoost).
 -Consider traffic/weather data for more accuracy.
+</pre>
+
