@@ -7,7 +7,7 @@ Trip-Duration-Project is a machine-learning pipeline to predict taxi trip durati
 The project includes data preprocessing / feature engineering, exploratory data analysis (EDA), model training & evaluation, and outputs for predictions and performance metrics.
 
 ## Repository Structure
-
+<pre>
 ├── weather data/ # (optional) weather or external data used for enrichment
 ├── split/ # code to split data (train/validation/test)
 ├── results/ # evaluation results, prediction outputs, model performance reports
@@ -18,7 +18,7 @@ The project includes data preprocessing / feature engineering, exploratory data 
 ├── test.py # script to run inference / evaluation on test set
 ├── trip-duration EDA.ipynb # notebook for exploratory data analysis & visualization
 └── README.md # this file
-
+</pre>
 
 ## Data & Features
 
