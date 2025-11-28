@@ -1,0 +1,20 @@
+{
+    "is_weekend": false,
+    "rush_hour": false,
+    "cluster_pair_avg_duration": true,
+    "scaler": "standardscaler",
+    "del_outliers": true,
+    "outliers_factor": 1.5,
+    "long_lat_distance": false,
+    "encode": [
+        "passenger_count",
+        "pickup_month",
+        "pickup_weekday",
+        "pickup_hour",
+        "vendor_id"
+    ],
+    "log_target": true,
+    "train_path": "split\\train.csv",
+    "val_path": "split\\val.csv",
+    "imputer": "knn"
+}
