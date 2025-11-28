@@ -1,5 +1,5 @@
 
-Trip-Duration-Project 🚖
+# Trip-Duration-Project 🚖
 Overview
 
 Trip-Duration-Project is a complete machine-learning pipeline designed to predict taxi trip duration using trip metadata such as pickup/dropoff coordinates, timestamps, passenger count, and engineered features.
