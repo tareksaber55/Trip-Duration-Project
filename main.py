@@ -166,5 +166,5 @@ if __name__ == '__main__':
     model = Ridge(alpha=1,random_state=42)
     model.fit(x_train,t_train)
     metrics = evaluate(x_val,t_val,model)
-    # save_run(model,args,metrics,imputer,encoder,scaler)
+    save_run(model,args,metrics,imputer,encoder,scaler)
 
