@@ -44,7 +44,7 @@ Use the following high-level workflow:
    Use code under `split/` to partition data properly (train / validation / test).  
 
 3. **Training**  
-   Run `main.py` to train one or more ML models — you can choose regression algorithms, tune hyperparameters, and save the best-performing model using utilities under `model_utilities/`.  
+   Run `main.py` to train Ridge Model(you can add more to the code) — you can choose The Features you need, and save the best-performing model using utilities under `model_utilities/`.  
 
 4. **Evaluation & testing**  
    Run `test.py` (or equivalent) on held-out test data to assess performance (RMSE, R²). Results and prediction outputs will be saved under `results/`.  
@@ -69,7 +69,7 @@ python feature_engineering.py
 python perpare_kmeans.py
 
 # run main training pipeline
-python main.py
+python main.py --del_outliers --log_target --cluster_pair_avg_duration --encode passenger_count  pickup_month  pickup_weekday pickup_hour  vendor_id --scaler standardscaler
 
 # evaluate / test model
 python test.py
