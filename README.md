@@ -76,6 +76,12 @@ python test.py
 
 Performance metrics on validation / test set (RMSE, R²)
 ```
+## Results
+Test Set
+
+•	RMSE: 0.4980
+
+•	R² Score: 0.6066
 
 ## Possible Extensions & Future Work
 
