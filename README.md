@@ -9,9 +9,9 @@ The project includes data preprocessing / feature engineering, exploratory data 
 ## Repository Structure
 <pre>
 ├── weather data/ # (optional) weather or external data used for enrichment
-├── split/ # code to split data (train/validation/test)
+├── split/ #(train/validation/test) data
 ├── results/ # evaluation results, prediction outputs, model performance reports
-├── model_utilities/ # saved model and args
+├── model_utilities/ # saved model ,args and metrics
 ├── feature_engineering.py # script to create features (distance, clusters, time-based, etc.)
 ├── perpare_kmeans.py # script to cluster pickup/dropoff locations (if clustering used)
 ├── main.py # main script to run full training pipeline
