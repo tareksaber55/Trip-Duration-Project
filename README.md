@@ -81,6 +81,8 @@ Test Set
 
 •	R² Score: 0.6066
 
+• You can get more better results if you use more advanced models , but in this project only ridge model with alpha 1 is permitted
+
 ## Possible Extensions & Future Work
 
 Some ideas to further improve or extend the project:
