@@ -62,8 +62,6 @@ cd Trip-Duration-Project
 # (optional) install dependencies if you have requirements.txt
 pip install -r requirements.txt
 
-# run feature engineering
-python feature_engineering.py
 
 # run clustering if using k-means
 python perpare_kmeans.py
