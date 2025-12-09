@@ -38,9 +38,9 @@ From these, the feature-engineering script derives additional features, e.g.:
 
 Use the following high-level workflow:
 
-1. **perpare_kmeans.py(optionally)**  
-   Run `perpare_kmeans.py` to prepare average_trip_duration_between_every_pair_of_clusters file and kmeans model(or just download them from directory average trip duration by cluster pairs)   
-
+1. **perpare_kmeans.py**  
+   Run `perpare_kmeans.py` to prepare average_trip_duration_between_every_pair_of_clusters file and kmeans model(or use them from directory average trip duration by cluster pairs)   
+   You can hyperparamater tune kmeans model and make new file based on it 
 2. **Train / validation split**  
    Use code under `split/` to partition data properly (train / validation / test).  
 
