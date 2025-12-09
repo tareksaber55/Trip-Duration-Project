@@ -29,16 +29,16 @@ The expected input data includes (but is not limited to) the following fields (s
 
 From these, the feature-engineering script derives additional features, e.g.:  
 - Geospatial distance (e.g. Haversine) between pickup & dropoff  
-- Cluster-based zone features (using K-means clustering of locations)  
-- Temporal features: hour of day, day of week, month, rush-hour flags, etc.  
+- Cluster-based zone features like average trip duration between every pair of clusters , pickup_cluster , dropoff_cluster (using K-means clustering of locations)  
+- Temporal features: hour of day, day of week, month, rush-hour flags, is_weekend.  
 - (Optional) External features, e.g. weather data — depending on `weather data/` usage.  
 
 ## Model Training & Evaluation Pipeline
 
 Use the following high-level workflow:
 
-1. **Preprocessing & feature engineering**  
-   Run `feature_engineering.py` (and optionally `perpare_kmeans.py`) to transform raw data into a feature matrix ready for modeling.  
+1. **perpare_kmeans.py(optionally)**  
+   Run `perpare_kmeans.py` to prepare average_trip_duration_between_every_pair_of_clusters file and kmeans model(or just download them from directory average trip duration by cluster pairs)   
 
 2. **Train / validation split**  
    Use code under `split/` to partition data properly (train / validation / test).  
