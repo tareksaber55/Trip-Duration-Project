@@ -9,6 +9,7 @@ The project includes data preprocessing / feature engineering, exploratory data 
 ## Repository Structure
 <pre>
 ├── weather data/ # (optional) weather or external data used for enrichment
+├── average trip duration by cluster pairs/ #contain average trip duration between every pair of clusters csv file and kmeans model to predict pickup_cluster and dropoff_cluster 
 ├── split/ #(train/validation/test) data
 ├── results/ # evaluation results, prediction outputs, model performance reports
 ├── model_utilities/ # saved model ,args and metrics
@@ -81,7 +82,7 @@ Test Set
 
 •	R² Score: 0.6066
 
-•  Note: You can get more better results if you use more advanced models, but in this project only ridge model with alpha 1 is permitted
+•  Note: You can get more better results if you use more advanced models, but in this project only ridge model with alpha 1 is permitted to make the challenge harder
 
 ## Possible Extensions & Future Work
 
