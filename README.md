@@ -39,18 +39,19 @@ From these, the feature-engineering script derives additional features, e.g.:
 Use the following high-level workflow:
 
 1. **perpare_kmeans.py**  
-   Run `perpare_kmeans.py` to prepare average_trip_duration_between_every_pair_of_clusters file and kmeans model(or use them from directory average trip duration by cluster pairs)   
-   You can hyperparamater tune kmeans model and download new file based on it 
-2. **Train / validation split**  
+   Run `perpare_kmeans.py` to prepare average_trip_duration_between_every_pair_of_clusters file and kmeans model   
+   You can choose number of clusters of kmeans model.
+   
+3. **Train / validation split**  
    Use code under `split/` to partition data properly (train / validation / test).  
 
-3. **Training**  
+4. **Training**  
    Run `main.py` to train Ridge Model(you can add more to the code) — you can choose The Features you need, and save the best-performing model using utilities under `model_utilities/`.  
 
-4. **Evaluation & testing**  
+5. **Evaluation & testing**  
    Run `test.py` (or equivalent) on held-out test data to assess performance (RMSE, R²). Results and prediction outputs will be saved under `results/`.  
 
-5. **Analysis & visualization**  
+6. **Analysis & visualization**  
    Use `trip-duration EDA.ipynb` to explore data distributions, feature importance, residual analysis, outliers, and to guide feature engineering or model improvements.  
 
 ## Example Usage
