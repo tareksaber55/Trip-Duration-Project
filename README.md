@@ -82,7 +82,7 @@ Performance metrics on validation / test set (RMSE, R²)
 
 •	R² Score: 0.6066
 
-•  **Note**: You can get more better results if you use more advanced models, but in this project only ridge model with alpha 1 is permitted to make the challenge  harder
+•  **Note**: You can get more better results if you use more advanced models
 
 ## Possible Extensions & Future Work
 
